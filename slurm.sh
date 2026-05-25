@@ -13,13 +13,12 @@
 
 set -e
 
-# 1. Load the CUDA module for the compute node
-module load cuda/12.9.lua
-export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
-
-# 2. Activate your Conda environment
+# 1. Activate your Conda environment FIRST
 source $(conda info --base)/etc/profile.d/conda.sh
 conda activate graphgps
+
+# 2. Force the node to use Conda's internal CUDA 11.7 libraries
+export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 
 echo "Running on node: $(hostname)"
 echo "Working directory: $(pwd)"
