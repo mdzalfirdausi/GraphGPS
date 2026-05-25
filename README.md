@@ -18,15 +18,15 @@ Specifically *PyG v2.2* is required.
 ### Python environment setup with Conda
 
 ```bash
-conda create -n graphgps python=3.10
+conda create -n graphgps python=3.10 -y
 conda activate graphgps
 
-conda install pytorch=1.13 torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
-conda install pyg=2.2 -c pyg -c conda-forge
+conda install pytorch=1.13 torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia -y
+conda install pyg=2.2 -c pyg -c conda-forge -y
 pip install pyg-lib -f https://data.pyg.org/whl/torch-1.13.0+cu117.html
 
 # RDKit is required for OGB-LSC PCQM4Mv2 and datasets derived from it.  
-conda install openbabel fsspec rdkit -c conda-forge
+conda install openbabel fsspec rdkit -c conda-forge -y
 
 pip install pytorch-lightning yacs torchmetrics
 pip install performer-pytorch
