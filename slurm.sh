@@ -13,10 +13,7 @@
 
 set -e
 
-# 1. Load the CUDA module for the compute node
-module load cuda/12.9
-
-# 2. Activate your Conda environment
+# Activate your perfectly contained Conda environment
 source $(conda info --base)/etc/profile.d/conda.sh
 conda activate graphgps
 
@@ -26,7 +23,7 @@ echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 echo "Python path: $(which python)"
 echo "Starting main.py"
 
-# 3. Run the specific configuration
+# Run the script
 python -u main.py --cfg configs/GPS/zinc-GPS+RWSE.yaml wandb.use False
 
 echo "Finished main.py"
